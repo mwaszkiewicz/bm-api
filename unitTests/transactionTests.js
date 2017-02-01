@@ -53,7 +53,6 @@ describe('Transactions', function() {
         chai.request(server)
             .get('/api/transaction/' + newTransaction.id)
             .end(function(err, res) {
-                console.log(res);
                 res.should.have.status(200);
                 res.should.be.json;
                 res.body.should.have.property('_id');

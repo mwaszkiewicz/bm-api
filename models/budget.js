@@ -4,17 +4,11 @@ require('mongoose-double')(db);
 var SchemaTypes = db.Schema.Types;
 
 var Budget = db.model('Budget', {
-    currentState: {
+    state: {
         type: SchemaTypes.Double,
         required: true
     },
-    lastModification: {
-        type: Date
-    },
-    previousState: {
-        type: SchemaTypes.Double
-    },
-    previousModification: {
+    date: {
         type: Date
     }
 });
