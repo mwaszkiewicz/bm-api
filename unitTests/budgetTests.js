@@ -7,32 +7,32 @@ var Budget = require('../models/budget');
 var chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 var should = chai.should();
-var newBudget;
+var initialBudget;
 
 describe('Budget', function() {
 
     Budget.collection.drop();
 
     beforeEach(function(done) {
-        newBudget = new Budget({
+        initialBudget = new Budget({
             state: 1600,
             date: '2017-01-14T13:00:00'
         });
-        newBudget.save(function(err) {});
+        initialBudget.save(function(err) {});
 
-        newBudget2 = new Budget({
+        firstBudget = new Budget({
             state: 2400,
             date: '2017-02-01T11:00:00'
         });
-        newBudget2.save(function(err) {
+        firstBudget.save(function(err) {
             done();
         });
 
-        newBudget1 = new Budget({
+        secondBudget = new Budget({
             state: 3500,
             date: '2017-01-14T11:00:00'
         });
-        newBudget1.save(function(err) {});
+        secondBudget.save(function(err) {});
 
     });
     afterEach(function(done) {
@@ -40,7 +40,7 @@ describe('Budget', function() {
         done();
     });
 
-    it('Get current budget value on /budget GET', function(done) {
+    it('get current budget value on /budget GET', function(done) {
         chai.request(server)
             .get('/api/budget')
             .end(function(err, res) {
@@ -57,7 +57,7 @@ describe('Budget', function() {
 
     it('should return one budget by id on /budget/:id GET', function(done) {
         chai.request(server)
-            .get('/api/budget/' + newBudget.id)
+            .get('/api/budget/' + initialBudget.id)
             .end(function(err, res) {
                 res.should.have.status(200);
                 res.should.be.json;

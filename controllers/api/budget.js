@@ -36,7 +36,6 @@ function getBudgetByDateRange(req, res, next) {
         }).sort('date')
         .exec(function(err, transaction) {
             if (err) {
-                //express error handling
                 return next(err);
             }
             res.json(transaction);
