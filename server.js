@@ -1,9 +1,11 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+var passport = require('passport');
 
 var app = express();
 
+app.use(passport.initialize());
 app.use(cors());
 app.use(require('./controllers'));
 
