@@ -5,4 +5,6 @@ config.mongoURI = {
     test: 'mongodb://localhost/bm-test'
 };
 
+config.secret = 'secretKey';
+
 module.exports = config;

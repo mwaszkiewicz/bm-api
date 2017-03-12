@@ -17,9 +17,11 @@
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
     "express": "^4.14.0",
+    "jsonwebtoken": "^7.3.0",
     "mocha": "^3.2.0",
     "mongoose": "^4.7.5",
     "mongoose-double": "0.0.1",
+    "morgan": "^1.8.1",
     "passport": "^0.3.2",
     "passport-http": "^0.3.0"
   },

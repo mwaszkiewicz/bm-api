@@ -1,20 +1,13 @@
 var Transaction = require('../../models/transaction');
 var router = require('express').Router();
-var authController = require('./auth');
 
-router.route('/transactions')
-    .get(authController.isAuthenticated, getAllTransactions);
-
-
-
-//router.get('/transactions', getAllTransactions);
-// router.get('/transactions/:from/:to', getAllTransactionsByDateRange);
-// router.get('/transactions/:type', getAllTransactionsByType);
-// router.get('/transaction/:id', getTransactionById);
-// router.post('/transaction', addTransaction);
-// router.put('/transaction/:id', updateTransaction);
-// router.delete('/transaction/:id', deleteTransaction);
-
+router.get('/transactions', getAllTransactions);
+router.get('/transactions/:from/:to', getAllTransactionsByDateRange);
+router.get('/transactions/:type', getAllTransactionsByType);
+router.get('/transaction/:id', getTransactionById);
+router.post('/transaction', addTransaction);
+router.put('/transaction/:id', updateTransaction);
+router.delete('/transaction/:id', deleteTransaction);
 
 function getAllTransactions(req, res, next) {
     Transaction.find()

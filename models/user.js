@@ -15,24 +15,22 @@ var UserSchema = db.Schema({
 });
 
 // Execute before each user.save() call
-UserSchema.pre('save', function(callback) {
+UserSchema.pre('save', function(next) {
     var user = this;
-    if (!user.isModified('password')) {
-        return callback();
+    if (!user.isModified('password') || !user.isNew) {
+        return next();
     }
-
     //salt is generated because it is used to hash password
     bcrypt.genSalt(5, function(err, salt) {
         if (err) {
-            return callback(err);
+            return next(err);
         }
-
-        bcrypt.hash(user.password, salt, null, function(err, hash) {
+        bcrypt.hash(user.password, salt, function(err, hash) {
             if (err) {
-                return callback(err);
+                return next(err);
             }
             user.password = hash;
-            callback();
+            next();
         });
     });
 });

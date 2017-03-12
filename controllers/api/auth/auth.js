@@ -1,6 +1,6 @@
 var passport = require('passport');
 var BasicStrategy = require('passport-http').BasicStrategy;
-var User = require('../../models/user');
+var User = require('../../../models/user');
 
 passport.use(new BasicStrategy(
     function(username, password, callback) {
@@ -10,8 +10,6 @@ passport.use(new BasicStrategy(
             if (err) {
                 return callback(err);
             }
-
-            // No user found with that username
             if (!user) {
                 return callback(null, false);
             }

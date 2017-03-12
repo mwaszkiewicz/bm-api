@@ -1,12 +1,8 @@
 var User = require('../../models/user');
 var router = require('express').Router();
 
-var authController = require('./auth');
-
-router.route('/users')
-    .get(authController.isAuthenticated, getUsers)
-    .post(addUsers);
-
+router.get('/users', getUsers);
+router.post('/users', addUsers);
 
 function getUsers(req, res, next) {
     User.find()
