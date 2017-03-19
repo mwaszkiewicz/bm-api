@@ -13,19 +13,14 @@ passport.use(new BasicStrategy(
             if (!user) {
                 return callback(null, false);
             }
-
-            // Make sure the password is correct
             user.verifyPassword(password, function(err, isMatch) {
                 if (err) {
                     return callback(err);
                 }
 
-                // Password did not match
                 if (!isMatch) {
                     return callback(null, false);
                 }
-
-                // Success
                 return callback(null, user);
             });
         });

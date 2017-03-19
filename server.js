@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var passport = require('passport');
 var morgan = require('morgan');
-var config = require('./config');
+var config = require('./_config');
 
 var app = express();
 

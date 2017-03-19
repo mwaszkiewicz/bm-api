@@ -7,10 +7,6 @@ router.get('/', function(req, res) {
     });
 });
 router.use(require('./auth'));
-// router.use(require('./authentication'));
-// router.use(function(req, res, next) {
-//     token.validateToken(req, res, next);
-// });
 router.use(require('./budget'));
 router.use(require('./transaction'));
 router.use(require('./user'));
