@@ -9,6 +9,7 @@ chai.use(chaiHttp);
 var should = chai.should();
 var initialBudget;
 
+
 describe('Budget', function() {
 
     Budget.collection.drop();
