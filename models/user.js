@@ -1,5 +1,5 @@
 var db = require('../db');
-var bcrypt = require('bcrypt-nodejs');
+var bcrypt = require('bcrypt');
 
 
 var UserSchema = db.Schema({
