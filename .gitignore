@@ -3,8 +3,9 @@
 #################
 
 node_modules
-_config.js
 controllers/api/auth/_auth-config.js
 controllers/api/auth/auth-facebook.js
 *.sqlite
 .vs
+.vscode
+config

@@ -14,7 +14,6 @@ var UserSchema = db.Schema({
     }
 });
 
-// Execute before each user.save() call
 UserSchema.pre('save', function(next) {
     var user = this;
     if (!user.isModified('password') || !user.isNew) {

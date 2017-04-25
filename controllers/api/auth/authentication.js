@@ -25,7 +25,7 @@ function login(req, res, next) {
             if (!isMatch) {
                 return next(null, false);
             }
-            var newToken = token.createToken(user, req.app.get('superSecret'));
+            var newToken = token.createToken(user, req.app.get('key'));
             res.json({
                 success: true,
                 message: 'Enjoy your token!',

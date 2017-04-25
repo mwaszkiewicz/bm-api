@@ -9,7 +9,7 @@ token.validateToken = function(req, res, next) {
     // decode token
     if (token) {
         // verifies secret and checks exp
-        jwt.verify(token, req.app.get('superSecret'), function(err, decoded) {
+        jwt.verify(token, req.app.get('key'), function(err, decoded) {
             if (err) {
                 return res.json({
                     success: false,
